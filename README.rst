@@ -1,5 +1,3 @@
-#django-practice
-
 ================
 Django Practices
 ================
