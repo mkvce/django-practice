@@ -1,0 +1,43 @@
+@font-face {
+  font-family: Shabnam;
+  src: url('../font/shabnam/Shabnam.eot');
+  src: url('../font/shabnam/Shabnam.eot?#iefix') format('Shabnam-opentype'),
+       url('../font/shabnam/Shabnam.woff') format('woff'),
+       url('../font/shabnam/Shabnam.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  background-image: url(../images/header_bg.jpeg);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  opacity: 100%;
+}
+
+body,
+.main,
+.navbar {
+  font-family: Shabnam, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-item {
+  text-align: center;
+  font-size: 1.25em;
+  padding-right: 1em;
+}
+
+.author {
+  font-size: small;
+}
+
+#logo {
+  height: 3em;
+  width: 3em;
+}
+
+.title {
+  top: 33%;
+  left: 3em;
+}

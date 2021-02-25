@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="fa">
+
+<head>
+  <title>وبلاگ من</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body dir="rtl">
+  <div class="header">
+    <div class="text-center sticky-top h1 py-5 text-dark shadow-lg">
+      اولین وبلاگ با جنگو
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-md bg-light navbar-light shadow-lg sticky-top" id="mynavbar">
+    <a href="#" class="navbar-brand">
+      <img src="../../static/images/blogger-logo.png" alt="لوگو" id="logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse pr-lg-5" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link"href="#">همه</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"href="#">دسته ۱</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"href="#">دسته ۲</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"href="#">دسته ۳</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="main w-100 py-5 px-4">
+    {% if articles %}
+    {% for article in articles %}
+    <div class="bg-light container-xl text-right mx-auto mb-3">
+      <h3 class="article-title pt-4 pb-2 px-3">{{ article.title }}<small class="author p-2">({{ article.author.name}})</small></h3>
+      <hr class="mx-4" />
+      <p class="article-brief pt-3 pb-0 px-4">{{ article.brief }}</p>
+      <div class="text-center text-lg-left">
+        <button class="btn btn-link m-3"><a href="#">ادامه مطلب</a></button>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <strong>نوشته‌ای موجود نیست</strong>
+    {% endif %}
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+    <head>
+    <title>About Rango</title>
+    </head>
+    <body>
+        <div>
+            <strong>{{ boldmessage }}</strong><br />
+        </div>
+        <div>
+            <img src="{% static "images/ghasem.jpg" %}" alt="Picture of Haj Ghasem" />
+        </div>
+        <p>This tutorial has been put together by {{ name }}</p>
+        <img src="{{ MEDIA_URL }}cat.jpeg">
+    </body>
+
+</html>
