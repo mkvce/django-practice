@@ -1,0 +1,22 @@
+{% extends 'blogger/base.html' %}
+
+{% load static %}
+{% load blogger_template_tags %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock head %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-md bg-light navbar-light shadow-lg sticky-top" id="mynavbar">
+  <a href="{% url 'blogger:index'%}" class="navbar-brand">
+    <img src="{% static 'images/blogger-logo.png' %}" alt="لوگو" id="logo" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse pr-lg-5" id="collapsibleNavbar">
+    {% get_category_list %}
+  </div>
+</nav>
+{% endblock %}
