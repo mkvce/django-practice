@@ -1,0 +1,13 @@
+{% extends 'blogger/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/base_form.css' %}">
+{% endblock %}
+
+{% block hero %}
+  <div class="form text-center container-sm rounded-xl mx-auto py-3 px-5">
+    {% block form %}
+    {% endblock %}
+  </div>
+{% endblock %}

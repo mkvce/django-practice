@@ -1,0 +1,50 @@
+{% extends 'blogger/base_form.html' %}
+
+{% block header %}ثبت نام{% endblock %}
+
+{% block title %}ثبت نام{% endblock %}
+
+{% block form %}
+  {% if registered %}
+  <strong class="text-success mx-2">از عضویت شما سپاس‌گزاریم</strong>
+  <a href="{% url 'blogger:index' %}">رفتن به صفحه اصلی</a>
+  {% else %}
+  <form id="user_form" class="p-2 m-2 text-right was-validated" method="POST" action="{% url 'blogger:register' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for hidden in user_form.hidden_fields %}
+    {{ hidden }}
+    {% endfor %}
+    {% for field in user_form.visible_fields %}
+    {% for error in field.errors %}
+    <div class="text-right alert alert-danger alert-dismissible fade show">
+      {{ error }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endfor %}
+    <div class="row form-group p-1 text-center text-light">
+      <div class="col-sm-6">{{ field.label_tag }}</div>
+      <div class="col-sm-6 text-sm-right">{{ field }}</div>
+    </div>
+    {% endfor %}
+
+    {% for hidden in author_form.hidden_fields %}
+    {{ hidden }}
+    {% endfor %}
+    {% for field in author_form.visible_fields %}
+    {% for error in field.errors %}
+    <div class="text-right alert alert-danger alert-dismissible fade show">
+      {{ error }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endfor %}
+    <div class="row form-group text-center text-light">
+      <div class="col-sm-6">{{ field.label_tag }}</div>
+      <div class="col-sm-6 text-sm-right">{{ field }}</div>
+    </div>
+    {% endfor %}
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg rounded-lg px-4 my-3">ثبت نام</button>
+    </div>
+  </form>
+  {% endif %}
+{% endblock %}
