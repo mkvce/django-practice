@@ -1,38 +1,40 @@
-{% extends 'blogger/base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 {% load blogger_template_tags %}
 
 {% block topbar %}
-  {% if user.is_authenticated %}
-  <div class="pt-2 px-3 bg-transparent">
-    <a href="{% url 'blogger:register' %}" class="text-light">
-      <h5>افزودن مطلب</h5>
-    </a>
+  <div class="d-flex text-center justify-content-center flex-sm-row flex-column">
+    {% if user.is_authenticated %}
+      <div class="pt-2 px-3 bg-transparent">
+        <a href="{% url 'blogger:register' %}" class="text-light">
+          <h5>افزودن مطلب</h5>
+        </a>
+      </div>
+      <div class="pt-2 px-3 bg-transparent">
+        <a href="{% url 'blogger:logout' %}" class="text-light">
+          <h5>خروج</h5>
+        </a>
+      </div>
+    {% else %}
+      <div class="pt-2 px-3 bg-transparent">
+        <a href="{% url 'blogger:login' %}" class="text-light">
+          <h5>ورود</h5>
+        </a>
+      </div>
+      <div class="pt-2 px-3 bg-transparent">
+        <a href="{% url 'blogger:register' %}" class="text-light">
+          <h5>ثبت نام</h5>
+        </a>
+      </div>
+    {% endif %}
   </div>
-  <div class="pt-2 px-3 bg-transparent">
-    <a href="{% url 'blogger:register' %}" class="text-light">
-      <h5>خروج</h5>
-    </a>
-  </div>
-  {% else %}
-  <div class="pt-2 px-3 bg-transparent">
-    <a href="{% url 'blogger:register' %}" class="text-light">
-      <h5>ورود</h5>
-    </a>
-  </div>
-  <div class="pt-2 px-3 bg-transparent">
-    <a href="{% url 'blogger:register' %}" class="text-light">
-      <h5>ثبت نام</h5>
-    </a>
-  </div>
-  {% endif %}
 {% endblock %}
 
 {% block navbar %}
-  <nav class="navbar navbar-expand-md bg-light navbar-light shadow-lg sticky-top" id="mynavbar">
-    <a href="{% url 'blogger:index'%}" class="navbar-brand">
-      <img src="{% static 'images/blogger-logo.png' %}" alt="لوگو" id="logo" />
+  <nav class="navbar navbar-expand-md bg-light navbar-light shadow-lg" id="mynavbar">
+    <a href="{% url 'blogger:index' %}" class="navbar-brand">
+      <img src="{% static 'blogger/images/blogger-logo.png' %}" alt="لوگو" id="logo"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>

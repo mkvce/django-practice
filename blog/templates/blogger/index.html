@@ -5,18 +5,19 @@
 {% block main %}
   <main class="main w-100 py-5 px-4">
     {% if articles %}
-    {% for article in articles %}
-    <div class="bg-light container-xl text-right mx-auto mb-3">
-      <h3 class="article-title pt-4 pb-2 px-3">{{ article.title }}<small class="author p-2">({{ article.author.name }})</small></h3>
-      <hr class="mx-4" />
-      <p class="article-brief pt-3 pb-0 px-4">{{ article.brief }}</p>
-      <div class="text-center text-lg-left">
-        <button class="btn btn-link m-3"><a href="#">ادامه مطلب</a></button>
-      </div>
-    </div>
-    {% endfor %}
+      {% for article in articles %}
+        <div class="bg-light container-xl text-right mx-auto mb-3">
+          <h3 class="article-title pt-4 pb-2 px-3">{{ article.title }}<small
+                  class="author p-2">({{ article.author.name }})</small></h3>
+          <hr class="mx-4"/>
+          <p class="article-brief pt-3 pb-0 px-4">{{ article.brief }}</p>
+          <div class="text-center text-lg-left">
+            <button class="btn btn-link m-3"><a href="#">ادامه مطلب</a></button>
+          </div>
+        </div>
+      {% endfor %}
     {% else %}
-    <strong>نوشته‌ای موجود نیست</strong>
+      <strong>نوشته‌ای موجود نیست</strong>
     {% endif %}
   </main>
 {% endblock %}

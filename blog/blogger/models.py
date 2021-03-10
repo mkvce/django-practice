@@ -2,6 +2,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -24,7 +25,7 @@ class Category(models.Model):
 
     class Meta():
         verbose_name_plural = 'Categories'
-    
+
     def __str__(self):
         return self.name
 
@@ -40,7 +41,7 @@ class Article(models.Model):
         self.author.num_of_articles += 1
         self.author.save()
         return super().save(*args, **kwargs)
-    
+
     def delete(self, *args, **kwargs):
         self.author.num_of_articles -= 1
         self.author.save()
