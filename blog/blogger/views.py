@@ -59,7 +59,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                logged_in = True
+                # logged_in = True
                 return HttpResponseRedirect(reverse('blogger:index'))
             else:
                 return HttpResponse("حساب کاربری شما غیر فعال شده است.")
